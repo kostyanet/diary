@@ -1,0 +1,27 @@
+.ItemInput {
+    display: flex;
+}
+
+.ItemInput input {
+    flex: 1;
+    font-size: 16px;
+    border: solid 2px #e5e5e5;
+    padding-left: 8px;
+    border-radius: 3px;
+}
+
+.ItemInput input::placeholder {
+    color: #b3b3b3;
+    font-size: 16px;
+}
+
+.ItemInput button {
+    padding: 9px 0;
+    background-color: #27ccc0;
+    color: white;
+    border-radius: 3px;
+    margin-left: 10px;
+    font-size: 16px;
+    border: none;
+    width: 132px;
+}

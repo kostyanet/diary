@@ -1,0 +1,12 @@
+.MainBoard {
+    padding: 30px;
+    box-sizing: border-box;
+    height: 100vh;
+    width: calc(100vw - 270px);
+    overflow-y: scroll;
+}
+
+.MainBoard__layout {
+    height: 120vh;
+    clear: both;
+}

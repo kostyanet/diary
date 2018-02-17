@@ -1,0 +1,21 @@
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #2b2f3e;
+    padding: 0 24px;
+}
+
+.sidebar__header {
+    text-transform: uppercase;
+    font-size: 36px;
+    color: #fff;
+    font-weight: 100;
+    margin: 13px 0 0;
+}
+
+.sidebar__description {
+    color: #808080;
+    font-size: 18px;
+    margin: 0;
+}

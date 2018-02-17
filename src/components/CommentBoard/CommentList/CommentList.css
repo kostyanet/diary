@@ -1,0 +1,48 @@
+.CommentList {
+    padding: 0;
+    margin: 20px 0 0;
+    list-style-type: none;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.CommentList__picture {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    border: 1px solid;
+}
+
+.CommentView {
+    padding: 16px 0 20px;
+    border-bottom: solid 1px #f2f2f2;
+}
+
+
+.CommentView:last-child {
+    border-bottom: none
+}
+
+.CommentView p {
+    flex: 1;
+    margin: -3px 0 0;
+}
+
+.CommentView:nth-child(odd) .CommentList__picture {
+    background-color: #ff8a00;
+    border-color: #ff8a00;
+}
+
+.CommentView:nth-child(even) .CommentList__picture {
+    background-color: #47568c;
+    border-color: #47568c;
+}
+
+.CommentView:nth-child(4n-3) .CommentList__picture {
+    border-color: #ffc580;
+}
+
+.CommentView:nth-child(4n-2) .CommentList__picture {
+    border-color: #a3abc6;
+}

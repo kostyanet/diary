@@ -1,0 +1,10 @@
+.ItemBoard {
+    padding: 10px 14px 18px 24px;
+    width: 50.85%;
+    float: left;
+}
+
+.ItemBoard__main {
+    margin-top: 14px;
+    padding-left: 5px;
+}
