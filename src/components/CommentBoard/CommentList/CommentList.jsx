@@ -1,15 +1,16 @@
-import React from 'react';
+import React      from 'react';
 import {observer} from 'mobx-react';
 
 import './CommentList.css';
+import {inject}   from 'mobx-react/index';
 
 
-const CommentList = observer(({comments, commentsNumber}) =>
-    commentsNumber
-        ? <ul className="CommentList">
-            {comments.map(comment => <CommentView key={comment.id} message={comment.message} />)}
-        </ul>
-        : <p>No comments yet for this item.</p>
+const CommentList = props => (
+    <ul className="CommentList">
+        {props.store.activeItem != null && props.store.activeItem.comments.map(comment =>
+            <CommentView key={comment.id} message={comment.message} />)
+        }
+    </ul>
 );
 
 
@@ -21,4 +22,4 @@ const CommentView = observer(({message}) =>
 );
 
 
-export default CommentList;
+export default inject('store')(observer(CommentList));

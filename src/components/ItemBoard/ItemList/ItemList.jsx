@@ -9,13 +9,12 @@ const ItemList = inject('store')(observer(({store}) => (
     <ul className="ItemList">
         {store.items.map((item, index) =>
             <ItemView
-                activeIndex={store.activeIndex}
                 index={index}
+                isActive={index === store.activeIndex}
                 item={item}
                 key={item.id}
                 removeItem={store.removeItem}
-                setItemActive={store.setItemActive}
-            />
+                setItemActive={store.setItemActive} />
         )}
     </ul>
 )));

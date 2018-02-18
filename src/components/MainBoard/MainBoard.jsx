@@ -1,7 +1,7 @@
 import React        from 'react';
 
-import CommentBoard from '../CommentBoard/CommentBoard';
-import ItemBoard    from '../ItemBoard/ItemBoard';
+import CommentBoard       from '../CommentBoard/CommentBoard';
+import ItemBoard          from '../ItemBoard/ItemBoard';
 import './MainBoard.css';
 
 

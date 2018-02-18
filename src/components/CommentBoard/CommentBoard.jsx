@@ -7,40 +7,22 @@ import './CommentBoard.css';
 
 
 
-class CommentBoard extends React.Component {
-    get comments() {
-        const store = this.props.store;
-        return this.itemNumber ? store.items[store.activeIndex].comments : null;
-    }
+const CommentBoard = () => (
+    <section className="panel CommentBoard">
+        <CommentHeader />
+        <CommentList />
+        <CommentInput />
+    </section>
+);
 
 
-    get commentsNumber() {
-        return this.comments.length;
-    }
+const _CommentHeader = props => (
+    <h2 className="panel__header">
+        Comments {props.store.activeIndex != null && <span>#{props.store.activeIndex + 1}</span>}
+    </h2>
+);
 
 
-    get itemNumber() {
-        let idx = this.props.store.activeIndex;
-        return idx === null ? null : idx + 1;
-    }
+const CommentHeader = inject('store')(observer(_CommentHeader));
 
-
-    render() {
-        return (
-            <section className="panel CommentBoard">
-                <h2 className="panel__header">Comments {this.itemNumber && <span>#{this.itemNumber}</span>}</h2>
-
-                {this.itemNumber
-                    ? <div className="CommentBoard__main">
-                        <CommentList comments={this.comments} commentsNumber={this.commentsNumber} />
-                        <CommentInput addComment={this.props.store.addComment} />
-                    </div>
-                    : <p>Please, select an item.</p>
-                }
-            </section>
-        );
-    }
-}
-
-
-export default inject('store')(observer(CommentBoard));
+export default CommentBoard;

@@ -1,4 +1,5 @@
 import React from 'react';
+import DevTools     from 'mobx-react-devtools';
 import { Provider } from 'mobx-react';
 import { useStrict } from 'mobx';
 
@@ -19,6 +20,8 @@ const App = () => (
             </aside>
 
             <MainBoard />
+
+            {/*<DevTools highlightTimeout={1500} />*/}
         </div>
     </Provider>
 );

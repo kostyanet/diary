@@ -13,12 +13,14 @@ class ItemView extends React.Component {
         this.props.setItemActive(this.props.index);
     };
 
+
     render() {
-        const {activeIndex, index, item} = this.props;
+        const {isActive, item} = this.props;
 
         return (
-            <li className={activeIndex === index ? 'flex-row ItemView active' : 'flex-row ItemView'}
+            <li className={isActive ? 'flex-row ItemView active' : 'flex-row ItemView'}
                 onClick={this.setItemActive}>
+
                 <article className="flex-row">
                     <div className="flex-row ItemView__main">
                         <div className="ItemView__title">{item.title}</div>

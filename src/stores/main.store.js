@@ -10,6 +10,9 @@ class MainStore {
         this.StorageService = StorageService;
 
         extendObservable(this, {
+            get activeItem() {
+                return this.activeIndex != null ? this.items[this.activeIndex] : null;
+            },
             activeIndex: null,
             items: StorageService.get() || fakeItems,
         });

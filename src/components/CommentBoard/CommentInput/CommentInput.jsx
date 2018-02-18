@@ -1,10 +1,11 @@
-import React from 'react';
+import React              from 'react';
 
 import './CommentInput.css';
+import {inject, observer} from 'mobx-react/index';
 
 
 
-export default class CommentInput extends React.Component {
+class CommentInput extends React.Component {
 
     handleKeyPress = event => {
         if (event.ctrlKey) {
@@ -18,6 +19,7 @@ export default class CommentInput extends React.Component {
 
     render() {
         return (
+            this.props.store.activeItem != null &&
             <section className="flex-row CommentInput">
                 <div className="CommentInput__picture" />
                 <textarea name="comment" onKeyPress={this.handleKeyPress} ref={(input) => this.input = input} />
@@ -25,3 +27,6 @@ export default class CommentInput extends React.Component {
         )
     }
 }
+
+
+export default inject('store')(observer(CommentInput));
