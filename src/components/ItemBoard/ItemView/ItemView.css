@@ -1,0 +1,55 @@
+.ItemView.active:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: #ff2f5a;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    left: -32px;
+}
+
+.ItemView {
+    position: relative;
+    padding-right: 5px;
+}
+
+.ItemView__main,
+.ItemView article {
+    align-items: center;
+}
+
+.ItemView article {
+    height: 55px;
+    width: 100%;
+    border-bottom: solid 1px #f2f2f2;
+}
+
+.ItemView__title {
+    margin: 0 10px 3px 0;
+    color: #2b2f3e;
+    text-shadow: 1px 0 0 rgba(43, 47, 62, 0.5);
+}
+
+.ItemView__counter {
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-width: 20px;
+    background-color: #27ccc0;
+}
+
+.ItemView button {
+    width: 98px;
+    height: 36px;
+    font-size: 16px;
+    font-weight: 100;
+    color: #ff305a;
+    background-color: white;
+    /*text-shadow: 0 0 1px 1px #ff98ca;*/
+    border-radius: 3px;
+    border: solid 2px #ff98ca;
+}

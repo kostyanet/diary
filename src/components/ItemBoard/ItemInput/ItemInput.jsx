@@ -1,7 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 
-// import ItemInput from './ItemInput/ItemInput';
 import './ItemInput.css';
 
 
@@ -17,7 +16,7 @@ class ItemInput extends React.Component {
 
     render() {
         return (
-            <div className="ItemInput">
+            <div className="flex-row ItemInput">
                 <input type="text" placeholder="Type name here…" ref={(input) => this.input = input} />
                 <button onClick={this.handleClick}>Add new</button>
             </div>

@@ -2,6 +2,7 @@ export function getRandomString() {
     return Math.random().toString(36).substring(2);
 }
 
+
 function makeComments() {
     const arr =[];
 
@@ -15,7 +16,9 @@ function makeComments() {
     return arr;
 }
 
+
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam architecto consequatur cumque doloremque eos exercitationem expedita inventore, laborum maiores maxime nihil odio officia.';
+
 
 export const fakeItems = [
     {

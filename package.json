@@ -1,6 +1,8 @@
 {
   "name": "empeek-test-task",
   "version": "0.1.0",
+  "author": "Kostya Netrebenko <net.kostya@gmail.com>",
+  "homepage" : "http://kostyanet.github.io/diary",
   "private": true,
   "dependencies": {
     "mobx": "^3.5.1",

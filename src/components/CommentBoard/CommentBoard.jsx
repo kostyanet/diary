@@ -1,46 +1,46 @@
-import React              from 'react';
-import {observer} from 'mobx-react';
+import React                        from 'react';
+import {observer, inject}           from 'mobx-react';
 
 import CommentInput from './CommentInput/CommentInput';
 import CommentList  from './CommentList/CommentList';
 import './CommentBoard.css';
 
 
-// @inject('store') @observer
-// export default class CommentBoard extends React.Component {
-//
-//     // handleSubmit = (creds, keepLogged) => {
-//     //     this.props.store.views.loginView.login(creds, keepLogged);
-//     // };
-//
-//
-//     render() {
-//         // const store = this.props.store.views.loginView;
-//
-//         return (
-//             <section className="panel CommentBoard">
-//                 <h2 className="panel__header">Items</h2>
-//
-//                 <div className="CommentBoard__main">
-//                     <CommentList />
-//                     <CommentInput />
-//                 </div>
-//             </section>
-//         );
-//     }
-//
-// }
+
+class CommentBoard extends React.Component {
+    get comments() {
+        const store = this.props.store;
+        return this.itemNumber ? store.items[store.activeIndex].comments : null;
+    }
 
 
-const CommentBoard = observer(({comments, index}) => (
-    <section className="panel CommentBoard">
-        <h2 className="panel__header">Comments #{index}</h2>
+    get commentsNumber() {
+        return this.comments.length;
+    }
 
-        <div className="CommentBoard__main">
-            <CommentList comments={comments}/>
-            <CommentInput />
-        </div>
-    </section>
-));
 
-export default CommentBoard
+    get itemNumber() {
+        let idx = this.props.store.activeIndex;
+        return idx === null ? null : idx + 1;
+    }
+
+
+    render() {
+        return (
+            <section className="panel CommentBoard">
+                <h2 className="panel__header">Comments {this.itemNumber && <span>#{this.itemNumber}</span>}</h2>
+
+                {this.itemNumber
+                    ? <div className="CommentBoard__main">
+                        <CommentList comments={this.comments} commentsNumber={this.commentsNumber} />
+                        <CommentInput addComment={this.props.store.addComment} />
+                    </div>
+                    : <p>Please, select an item.</p>
+                }
+            </section>
+        );
+    }
+}
+
+
+export default inject('store')(observer(CommentBoard));

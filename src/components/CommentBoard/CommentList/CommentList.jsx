@@ -4,10 +4,12 @@ import {observer} from 'mobx-react';
 import './CommentList.css';
 
 
-const CommentList = observer(({comments}) =>
-    <ul className="CommentList">
-        {comments.map(comment => <CommentView key={comment.id} message={comment.message} />)}
-    </ul>
+const CommentList = observer(({comments, commentsNumber}) =>
+    commentsNumber
+        ? <ul className="CommentList">
+            {comments.map(comment => <CommentView key={comment.id} message={comment.message} />)}
+        </ul>
+        : <p>No comments yet for this item.</p>
 );
 
 

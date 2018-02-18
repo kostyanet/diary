@@ -1,42 +1,56 @@
 import {action, extendObservable, toJS} from 'mobx';
+
 import {fakeItems, getRandomString}     from './helpers';
+import StorageService                   from '../services/storage.service';
+
 
 
 class MainStore {
-    constructor() {
+    constructor(StorageService) {
+        this.StorageService = StorageService;
+
         extendObservable(this, {
             activeIndex: null,
             items: StorageService.get() || fakeItems,
         });
     }
 
+
+    addComment = action(message => {
+        this.items[this.activeIndex].comments.push({
+            message,
+            id:         getRandomString(),
+        });
+
+        this.StorageService.set(toJS(this.items));
+    });
+
+
     createItem = action(title => {
         this.items.push({
             id:         getRandomString(),
-            title,
+            title:      title.substr(0, 33),
             comments:   []
         });
 
-        StorageService.set(toJS(this.items));
+        this.StorageService.set(toJS(this.items));
     });
+
+
+    removeItem = action(index => {
+        if (index === this.activeIndex) this.activeIndex = null;
+
+        this.items.splice(index, 1);
+        this.StorageService.set(toJS(this.items));
+    });
+
 
     setItemActive = action(index => this.activeIndex = index)
 
 }
 
 
-class StorageService {
-    static get() {
-        return JSON.parse(window.localStorage.getItem('items'));
-    }
 
-
-    static set(data = null) {
-        window.localStorage.setItem('items', JSON.stringify(data));
-    }
-}
-
-
-const mainStore = new MainStore();
+const mainStore = new MainStore(StorageService);
 export default mainStore;
 
